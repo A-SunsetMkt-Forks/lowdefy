@@ -53,6 +53,7 @@
     "@lowdefy/blocks-basic": "4.0.2",
     "@lowdefy/blocks-loaders": "4.0.2",
     "@lowdefy/client": "4.0.2",
+    "@lowdefy/docs": "workspace:*",
     "@lowdefy/helpers": "4.0.2",
     "@lowdefy/layout": "4.0.2",
     "@lowdefy/node-utils": "4.0.2",

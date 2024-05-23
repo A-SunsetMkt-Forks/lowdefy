@@ -1,0 +1,83 @@
+# Copyright 2020-2024 Lowdefy, Inc
+
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+
+#     http://www.apache.org/licenses/LICENSE-2.0
+
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+_ref:
+  path: templates/blocks/template.yaml.njk
+  vars:
+    block_type: TreeMultipleSelector
+    value_type: any
+    category: input
+    schema: ../plugins/blocks/blocks-antd/src/blocks/TreeMultipleSelector/schema.json
+    filePath: blocks/input/TreeMultipleSelector.yaml
+    init_state_values:
+      __type_block.properties.options: object[]
+      __object_arr_block.properties.options:
+        - id: 1
+          label: Node 1
+          value: '1'
+        - id: '1.1'
+          parentId: 1
+          label: Node 1.1
+          value: '1.1'
+        - label: Node 2
+          value: '2'
+        - id: '2.1'
+          parentId: 2
+          label: Node 2.1
+          value: '2.1'
+
+    description_content: |
+      The `TreeMultipleSelector` block allows a user to display, collapse, search and select node from a hierarchical list in a tree structure.
+
+      The options for the selector can be provided as an array of objects with id, parentId, label and value properties.
+
+      The value in state is an array of selected values.
+
+    examples:
+      - title: Tree list of type and category with connecting line and single select.
+        block:
+          id: tree_list_type_category
+          type: TreeMultipleSelector
+          properties:
+            options:
+              - id: type
+                label: Type
+                value: type
+              - id: 1
+                parentId: type
+                label: One
+                value: 1
+              - id: 2
+                parentId: type
+                label: Two
+                value: 2
+              - id: 3
+                parentId: type
+                label: Three
+                value: 3
+              - id: category
+                label: Category
+                value: category
+              - id: documentary
+                parentId: category
+                label: Documentary
+                value: documentary
+              - id: sci-fi
+                parentId: category
+                label: Science Fiction
+                value: sci-fi
+              - id: drama
+                parentId: category
+                label: Drama
+                value: drama

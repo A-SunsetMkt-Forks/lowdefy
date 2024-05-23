@@ -1,0 +1,125 @@
+{
+  "type": "object",
+  "properties": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "disabled": {
+        "type": "boolean",
+        "default": false,
+        "description": "Disable the block if true."
+      },
+      "selectable": {
+        "type": "boolean",
+        "default": true,
+        "description": "Selectable if true."
+      },
+      "placeholder": {
+        "type": "string",
+        "description": "Placeholder text."
+      },
+      "treeDefaultExpandAll": {
+        "type": "boolean",
+        "default": false,
+        "description": "Expand all tree nodes by default."
+      },
+      "treeNodeFilterProp": {
+        "type": "string",
+        "default": "label",
+        "description": "The tree node property that is used for filtering."
+      },
+      "autoClearSearchValue": {
+        "type": "boolean",
+        "default": false,
+        "description": "Clear search value when select is closed."
+      },
+      "useSetData": {
+        "type": "boolean",
+        "default": false,
+        "description": "Use the setData method instead of properties.options. This works better with large data sets."
+      },
+      "options": {
+        "default": [],
+        "oneOf": [
+          {
+            "type": "array",
+            "description": "Options is an array of objects with id, parentId, label and value properties.",
+            "items": {
+              "type": "object",
+              "required": ["value"],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "Unique id for the node."
+                },
+                "parentId": {
+                  "type": "string",
+                  "description": "Id of the node's parent - can be null."
+                },
+                "label": {
+                  "type": "string",
+                  "description": "Value label shown in MultipleTreeSelector dropdown - supports html."
+                },
+                "value": {
+                  "description": "Value selected. Can be of any type.",
+                  "oneOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "type": "object"
+                    },
+                    {
+                      "type": "array"
+                    }
+                  ],
+                  "docs": {
+                    "displayType": "yaml"
+                  }
+                },
+                "disabled": {
+                  "type": "boolean",
+                  "description": "Disable the node if true.",
+                  "default": false
+                },
+                "selectable": {
+                  "type": "boolean",
+                  "description": "Selectable if true.",
+                  "default": true
+                },
+                "tag": {
+                  "type": "string",
+                  "description": "HTML template for displaying tags."
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "onChange": {
+        "type": "array",
+        "description": "Trigger action when selection is changed."
+      },
+      "onSearch": {
+        "type": "array",
+        "description": "Trigger action when search is performed."
+      },
+      "onReady": {
+        "type": "array",
+        "description": "Trigger action when component is ready."
+      }
+    }
+  }
+}
